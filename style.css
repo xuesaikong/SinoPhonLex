@@ -89,3 +89,14 @@ input:focus {
 #searchBtn:hover {
   background: var(--primary-hover);
 }
+.hidden {
+  display: none !important;
+}
+
+#loadingIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
