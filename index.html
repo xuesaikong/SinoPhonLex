@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <h1>中法谐音匹配查询</h1>
-    <p>输入中文谐音或拼音，找到对应法语单词</p>
+    <div class="container">
+      <header>
+        <h1>中法谐音匹配查询</h1>
+        <p class="subtitle">输入中文谐音或拼音，找到对应的法语单词</p>
+      </header>
 
-    <input type="text" id="searchInput" placeholder="输入中文或拼音..." />
-    <button id="searchBtn">搜索</button>
+      <div class="search-section">
+        <div class="input-group">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="输入中文或拼音..."
+            autocomplete="off"
+          />
+          <button id="searchBtn">搜索</button>
+        </div>
+      </div>
 
-    <div id="results"></div>
+      <div id="results"></div>
+    </div>
   </body>
-</html> 
+</html>
