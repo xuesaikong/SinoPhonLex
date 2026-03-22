@@ -14,12 +14,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordMeaning = document.getElementById('wordMeaning')
   const wordSentences = document.getElementById('wordSentences')
 
+  // 设置元素
+  const settingsBtn = document.getElementById('settingsBtn')
+  const settingsModal = document.getElementById('settingsModal')
+  const saveSettingsBtn = document.getElementById('saveSettingsBtn')
+  const closeSettingsBtn = document.getElementById('closeSettingsBtn')
+  const apiKeyInput = document.getElementById('apiKeyInput')
+
+  // 设置逻辑
+  let apiKey = localStorage.getItem('deepseek_api_key') || ''
+  apiKeyInput.value = apiKey
+
+  settingsBtn.addEventListener('click', () => {
+    settingsModal.classList.remove('hidden')
+  })
+
+  closeSettingsBtn.addEventListener('click', () => {
+    settingsModal.classList.add('hidden')
+  })
+
+  saveSettingsBtn.addEventListener('click', () => {
+    apiKey = apiKeyInput.value.trim()
+    localStorage.setItem('deepseek_api_key', apiKey)
+    settingsModal.classList.add('hidden')
+  })
+
   searchBtn.addEventListener('click', performSearch)
   searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') performSearch()
   })
 
-  async function performSearch() {
+    async function performSearch() {
     const query = searchInput.value.trim()
     if (!query) return
 
@@ -62,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       candidatesList.appendChild(li)
     })
   }
+  
   async function fetchWordInfo(word) {
     wordInfoCard.classList.remove('hidden')
     wordTitle.textContent = word
