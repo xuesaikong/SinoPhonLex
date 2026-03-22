@@ -1,9 +1,14 @@
 :root {
   --primary: #4f46e5;
   --primary-hover: #4338ca;
+  --accent: #8b5cf6;
   --bg-color: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --backdrop-blur: blur(16px);
 }
 
 * {
@@ -17,9 +22,12 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5vh 0;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .container {
@@ -32,6 +40,56 @@ body {
   position: relative;
 }
 
+.shape {
+  position: absolute;
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(79, 70, 229, 0.4);
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(139, 92, 246, 0.4);
+  bottom: 10%;
+  right: 5%;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(14, 165, 233, 0.3);
+  top: 30%;
+  left: 40%;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  z-index: 10;
+}
+
 header {
   text-align: center;
 }
@@ -40,7 +98,10 @@ h1 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #a78bfa;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
@@ -89,7 +150,8 @@ input:focus {
 }
 
 #searchBtn:hover {
-  background: var(--primary-hover);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
 }
 
 .hidden {
@@ -126,16 +188,15 @@ input:focus {
 
 .candidates-list li:hover {
   background: rgba(139, 92, 246, 0.2);
-  border-color: #8b5cf6;
+  border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
 }
 
 .word-info-card {
   margin-top: 24px;
   padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: rgba(30, 41, 59, 0.5);
+  overflow: hidden;
 }
 
 .card-header {
@@ -247,7 +308,6 @@ input:focus {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .modal .input-group {
