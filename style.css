@@ -95,7 +95,8 @@ input:focus {
   display: none !important;
 }
 
-#loadingIndicator {
+#loadingIndicator ,
+.word-loading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,4 +127,81 @@ input:focus {
   background: rgba(139, 92, 246, 0.2);
   border-color: #8b5cf6;
   transform: translateY(-2px);
+}
+
+.word-info-card {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#wordTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pronunciation {
+  color: #8b5cf6;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+#wordMeaning {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.sentences-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sentence-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border-left: 3px solid var(--primary);
+}
+
+.fr-text {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.zh-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
