@@ -89,7 +89,7 @@ input:focus {
 
 #searchBtn:hover {
   background: var(--primary-hover);
-}git commit -m "feat: mise à jour des styles CSS"
+}
 
 .hidden {
   display: none !important;
