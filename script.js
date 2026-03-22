@@ -81,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li')
       li.textContent = word
       li.addEventListener('click', () => {
-        // TODO: 点击后展示单词详情
-        alert(`你选择了: ${word}`)
+        fetchWordInfo(word)
       })
       candidatesList.appendChild(li)
     })
