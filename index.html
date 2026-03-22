@@ -54,8 +54,28 @@
           </div>
         </div>
       </div>
+      
+      <!-- 设置触发按钮 -->
+      <button id="settingsBtn" class="settings-btn" title="Settings">⚙️</button>
     </div>
 
+    <!-- 设置弹窗 -->
+    <div id="settingsModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>⚙️ 系统设置</h3>
+        <div class="input-group">
+          <label for="apiKeyInput">DeepSeek API Key (可选)</label>
+          <input type="password" id="apiKeyInput" placeholder="sk-..." />
+        </div>
+        <p class="hint">
+          配置您自己的 DeepSeek API Key 后词条生成速度更快，如果留空将使用默认服务器配置。
+        </p>
+        <div class="modal-actions">
+          <button id="saveSettingsBtn" class="btn primary">保存</button>
+          <button id="closeSettingsBtn" class="btn secondary">取消</button>
+        </div>
+      </div>
+    </div>  
     <script src="/static/script.js"></script>
-  </body>
+  <body>
 </html>
