@@ -33,6 +33,26 @@
           <h3>可能的候选单词：</h3>
           <ul id="candidatesList" class="candidates-list"></ul>
         </div>
+        
+        <div id="wordInfoCard" class="word-info-card hidden">
+          <div class="card-header">
+            <h2 id="wordTitle">bonjour</h2>
+            <span id="wordPronunciation" class="pronunciation">/bɔ̃ʒuʁ/</span>
+          </div>
+          <div class="card-body">
+            <div class="info-group">
+              <span class="label">中文意思：</span>
+              <p id="wordMeaning">你好，早上好</p>
+            </div>
+            <div class="info-group sentences-group">
+              <span class="label">例句：</span>
+              <div id="wordSentences" class="sentences-list"></div>
+            </div>
+          </div>
+          <div id="wordLoading" class="hidden word-loading">
+            <span>生成词条信息中...</span>
+          </div>
+        </div>
       </div>
     </div>
 
