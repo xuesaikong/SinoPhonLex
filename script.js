@@ -39,15 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
     settingsModal.classList.add('hidden')
   })
 
+  // 重置查询逻辑
   searchBtn.addEventListener('click', performSearch)
   searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') performSearch()
   })
 
-    async function performSearch() {
+  async function performSearch() {
     const query = searchInput.value.trim()
     if (!query) return
 
+    // 重置 UI
     wordInfoCard.classList.add('hidden')
     candidatesContainer.classList.add('hidden')
     loadingIndicator.classList.remove('hidden')
@@ -88,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   async function fetchWordInfo(word) {
+    //显示加载状态中的信息卡片
     wordInfoCard.classList.remove('hidden')
     wordTitle.textContent = word
     wordPronunciation.textContent = ''
@@ -121,9 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
           if (sentence.includes(' - ')) {
             const parts = sentence.split(' - ')
             sItem.innerHTML = `<div class="fr-text">${parts[0]}</div><div class="zh-text">${parts[1]}</div>`
+          } else if (sentence.includes('：')) {
+            const parts = sentence.split('：')
+            sItem.innerHTML = `<div class="fr-text">${sentence}</div>`
           } else {
             sItem.innerHTML = `<div class="fr-text">${sentence}</div>`
-          }
+        }
           wordSentences.appendChild(sItem)
         })
       } else {
